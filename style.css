@@ -1,0 +1,44 @@
+*{
+    font-size:1.1rem;
+}
+
+body{
+    text-align:center;
+    background-color: papayawhip;
+}
+h2{
+    font-size:2.5rem;
+}
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+textarea{
+    width:60%;
+}
+
+aside{
+    border-top:5px solid grey;
+}
+
+/* .allTasks *{
+    
+} */
+
+.editBtn {
+    background-color: orange;
+}
+.checkBtn {
+    background-color: green;
+}
+.check{
+    background-color: white;
+    opacity:0;
+}
+.delBtn {
+    background-color: red;
+}
