@@ -25,21 +25,21 @@ aside{
     border-top:5px solid grey;
 }
 
-/* .allTasks *{
+ .allTasks{
+    margin:1rem 0;
     
-} */
+} 
 
-.editBtn {
-    background-color: orange;
-}
 .checkBtn {
     background-color: green;
 }
 .check{
-    background-color: #ffffff;
-    opacity:0.5;
-    text-decoration:line-through;
+    text-decoration: line-through;
 }
 .delBtn {
     background-color: red;
+}
+
+.fa-trash, .fa-check{
+    pointer-events:none;
 }
