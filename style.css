@@ -36,8 +36,9 @@ aside{
     background-color: green;
 }
 .check{
-    background-color: white;
-    opacity:0;
+    background-color: #ffffff;
+    opacity:0.5;
+    text-decoration:line-through;
 }
 .delBtn {
     background-color: red;
