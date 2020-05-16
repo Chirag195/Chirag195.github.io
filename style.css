@@ -36,8 +36,8 @@ aside{
     padding:0.3rem;
     border-radius:8px;
 } 
-.allTasks span,pre{
-    padding:0 0.5rem;
+.allTasks pre,span{
+    padding:0 0.8rem;
 }
 .checkBtn {
     background-color: green;
