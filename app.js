@@ -1,4 +1,4 @@
-localStorage.items = undefined;
+var data = [];
 
 //console.log(localStorage.items);
 
@@ -6,11 +6,11 @@ localStorage.items = undefined;
 const addBtn = document.querySelector('#add-btn');
 addBtn.addEventListener('click', addTask);
 
-const editBtn = document.querySelector('.editBtn');
+const editBtn = document.querySelector('.display');
 editBtn.addEventListener('click', editTask);
-const checkBtn = document.querySelector('.checkBtn');
+const checkBtn = document.querySelector('.display');
 checkBtn.addEventListener('click', checkTask);
-const delBtn = document.querySelector('.delBtn');
+const delBtn = document.querySelector('.display');
 delBtn.addEventListener('click', delTask);
 
 function addTask(e) {
@@ -21,23 +21,18 @@ function addTask(e) {
         alert('Please enter title or description');
         return false;
     }
-    if (localStorage.items == 'undefined')
-        localStorage.items = JSON.stringify([]);
-    else {
-        const data = JSON.parse(localStorage.items);
-        data.push({ title, desc });
-        localStorage.items = JSON.stringify(data);
-    }
-
+    const item = data.push({ title, desc });
     //creating new div on clicking
     const div = document.createElement('div');
     div.classList.add('allTasks');
-    const key = document.createElement('span');
-    key.innerText = title + " ";
+    const key = document.createElement('input');
+    key.value = title + " ";
+    key.classList.add('nonEditable');
     div.appendChild(key);
-    const val = document.createElement('pre');
+    const val = document.createElement('input');
     val.style = "display:inline";
-    val.innerText = desc;
+    val.classList.add('nonEditable');
+    val.value = desc;
     div.appendChild(val);
 
     const editBtn = document.createElement('button');
@@ -56,7 +51,6 @@ function addTask(e) {
     div.appendChild(delBtn);
 
     document.querySelector('.display').appendChild(div);
-    console.log(localStorage.items);
     document.querySelector('#taskTitle').value = '';
     document.querySelector('#taskDesc').value = '';
 }
@@ -64,7 +58,7 @@ function addTask(e) {
 
 function editTask() {
     e.preventDefault();
-    return false;
+    console.log(e.target);
 }
 function checkTask(e) {
     e.preventDefault();
