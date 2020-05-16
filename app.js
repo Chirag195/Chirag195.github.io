@@ -8,10 +8,7 @@ addBtn.addEventListener('click', addTask);
 
 const editBtn = document.querySelector('.display');
 editBtn.addEventListener('click', editTask);
-const checkBtn = document.querySelector('.display');
-checkBtn.addEventListener('click', checkTask);
-const delBtn = document.querySelector('.display');
-delBtn.addEventListener('click', delTask);
+
 
 function addTask(e) {
     e.preventDefault();
@@ -25,20 +22,14 @@ function addTask(e) {
     //creating new div on clicking
     const div = document.createElement('div');
     div.classList.add('allTasks');
-    const key = document.createElement('input');
-    key.value = title + " ";
-    key.classList.add('nonEditable');
+    const key = document.createElement('span');
+    key.innerText = title + " ";
     div.appendChild(key);
-    const val = document.createElement('input');
+    const val = document.createElement('pre');
     val.style = "display:inline";
-    val.classList.add('nonEditable');
-    val.value = desc;
+    val.innerText = "  " + desc;
     div.appendChild(val);
 
-    const editBtn = document.createElement('button');
-    editBtn.innerHTML = '<i class="fas fa-edit"></i>';
-    editBtn.classList.add('editBtn');
-    div.appendChild(editBtn);
 
     const checkBtn = document.createElement('button');
     checkBtn.innerHTML = '<i class="fas fa-check"></i>';
@@ -56,18 +47,16 @@ function addTask(e) {
 }
 
 
-function editTask() {
+function editTask(e) {
     e.preventDefault();
-    console.log(e.target);
-}
-function checkTask(e) {
-    e.preventDefault();
+    const item = e.target;
+
     const btn = e.target;
-    btn.parentElement.classList.toggle('check');
-}
-function delTask(e) {
-    e.preventDefault();
-    const del = e.target;
-    const btn = del.parentElement;
-    btn.remove();
+    if (item.classList[0] == 'checkBtn') {
+        btn.parentElement.classList.toggle('check');
+    }
+    if (item.classList[0] == 'delBtn') {
+        const del = e.target.parentElement;
+        del.remove();
+    }
 }
